@@ -4,11 +4,9 @@ window.Trill = {
   Views: {},
   Routers: {},
   initialize: function() {
-	  new Trill.Routers.TrillRouter();
+	  new Trill.Routers.TrillRouter({
+		  rootEl: "#main"
+	  });
 	  Backbone.history.start();
   }
 };
-
-$(function(){
-	Trill.initialize();
-})
