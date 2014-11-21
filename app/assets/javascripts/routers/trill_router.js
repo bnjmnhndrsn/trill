@@ -1,19 +1,22 @@
 Trill.Routers.TrillRouter = Backbone.Router.extend({
 	initialize: function(options){
 		this.$rootEl = $(options.rootEl);
-		this.boards = new Trill.Collections.Boards();
-		this.boards.fetch();
+		Trill.Collections.boards = new Trill.Collections.Boards();
+		Trill.Collections.boards.fetch();
 	},
 	routes: {
 		"": "index",
 		"boards/:id": "show"
 	},
 	index: function(){
-		var indexView = new Trill.Views.BoardsIndex({ collection: this.boards });
+		var indexView = new Trill.Views.BoardsIndex({ collection: Trill.Collections.boards });
 		this._swapView(indexView);
 	
 	},
-	show: function(){
+	show: function(id){
+		var board = Trill.Collections.boards.getOrFetch(id);
+		var showView = new Trill.Views.BoardsShow({ model: board });
+		this._swapView(showView);
 		
 	},
 	_swapView: function(newView){

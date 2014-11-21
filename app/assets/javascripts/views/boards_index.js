@@ -9,6 +9,8 @@ Trill.Views.BoardsIndex = Backbone.CompositeView.extend({
 			indexView.addBoardView(board);
 		});
 		
+		this.addSubview(".new-board", new Trill.Views.BoardsForm());
+		
 		this.listenTo(this.collection, "add", this.addBoardView);
 	},
 	render: function () {
@@ -18,6 +20,6 @@ Trill.Views.BoardsIndex = Backbone.CompositeView.extend({
 		return this;
 	},
 	addBoardView: function(board){
-		this.addSubview( ".index-list", new Trill.Views.BoardsIndexItem({ model: board }).render() );
+		this.addSubview( ".index-list", new Trill.Views.BoardsIndexItem({ model: board }) );
 	}
 });
