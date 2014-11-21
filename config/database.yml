@@ -5,7 +5,8 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: trello_dev 
+  database: trello_dev
+  username: ben
   pool: 5
   timeout: 5000
 
