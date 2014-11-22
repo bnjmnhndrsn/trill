@@ -1,4 +1,5 @@
 Trill.Views.BoardsIndex = Backbone.CompositeView.extend({
+	className: "container",
 	template: JST["boards/index"],
 	events: {
 	},

@@ -1,6 +1,7 @@
 Trill.Views.ListsShow = Backbone.CompositeView.extend({
+
 	tagName: "div",
-	className: "list col-xs-4",
+	className: "list",
 	template: JST["lists/show"],
 	initialize: function(){
 		this.listenTo( this.model, 'change', this.render );
