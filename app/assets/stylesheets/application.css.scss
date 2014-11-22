@@ -16,8 +16,46 @@
 @import "bootstrap";
 @import "font-awesome";
 
-.index-list {
-	font-size: 115%;
+
+/*shared*/
+
+.delete-item {
+	visibility: hidden;
+	opacity: 0;
+	font-size: 8px;
+	position: absolute;
+	transition: opacity 1s ease;
+	
+	&:hover {
+		text-decoration: none;
+		color: red;
+	};
+}
+
+.board-index-item {
+	div {
+		font-size: 125%;
+		line-height: 100px;
+		background-color: rgb(250, 250, 250);
+		border-radius: 5px;
+		height: 100px;
+		text-align: center;
+	}
+	
+	.delete-item {
+		top: 4px;
+		right: 20px;
+	}
+	
+	&:hover .delete-item {
+		visibility: visible;
+		opacity: 1;
+	}
+	margin-bottom: 30px;
+}
+
+.new-list {
+	float: right;
 }
 
 #lists-container {
@@ -70,6 +108,8 @@
 	}
 }
 
+
+
 .card-index-item {
 	position: relative;
 	border-radius: 5px;
@@ -87,18 +127,8 @@
 	}
 	
 	.delete-item {
-		visibility: hidden;
-		opacity: 0;
-		font-size: 8px;
-		position: absolute;
 		top: 2px;
 		right: 2px;
-		transition: opacity 1s ease;
-		
-		&:hover {
-			text-decoration: none;
-			color: red;
-		};
 	}
 	
 	&:hover {

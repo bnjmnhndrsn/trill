@@ -1,5 +1,5 @@
 Trill.Views.BoardsIndexItem = Backbone.View.extend({
-	tagClass: "index-item",
+	className: "col-xs-3 board-index-item",
 	template: JST["boards/index_item"],
 	initialize: function(){
 	},

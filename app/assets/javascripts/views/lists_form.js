@@ -1,8 +1,7 @@
 Trill.Views.ListsForm = Backbone.View.extend({
 	template: JST["lists/form"],
 	events: {
-		"submit form": "newList",
-		"click .toggle": "toggle"
+		"submit form": "newList"
 	},
 	initialize: function(){
 		this.open = false;
@@ -11,16 +10,6 @@ Trill.Views.ListsForm = Backbone.View.extend({
 	render: function(){
 		this.$el.html( this.template() );
 		return this;
-	},
-	toggle: function(){
-		this.open = !this.open;
-		if (this.open){
-			this.$(".toggleable").show();
-			this.$(".toggle").text("Cancel");
-		} else {
-			this.$(".toggleable").hide();
-			this.$(".toggle").text("Add List");
-		}
 	},
 	newList: function(event){
 		event.preventDefault();
@@ -45,6 +34,5 @@ Trill.Views.ListsForm = Backbone.View.extend({
 			}
 		});
 		
-		return false;
 	}
 });
