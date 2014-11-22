@@ -1,5 +1,7 @@
 Trill.Views.ListsShow = Backbone.CompositeView.extend({
-
+	events: {
+		"click .delete-item": "deleteList"
+	},
 	tagName: "div",
 	className: "list",
 	template: JST["lists/show"],
@@ -32,5 +34,8 @@ Trill.Views.ListsShow = Backbone.CompositeView.extend({
 		});
 		
 		this.removeSubview( ".cards", toDelete );
+	},
+	deleteList: function(){
+		this.model.destroy();
 	}
 })
