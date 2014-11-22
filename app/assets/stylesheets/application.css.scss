@@ -32,19 +32,56 @@
 	};
 }
 
+
+.overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.modal {
+    position:absolute;
+    background:url(tint20.png) 0 0 repeat;
+    background:rgba(0,0,0,0.2);
+    border-radius:14px;
+    padding:8px;
+}
+
+.content {
+    border-radius:8px;
+    background:#fff;
+    padding:20px;
+}
+
+/*individual*/
+
 .board-index-item {
-	div {
-		font-size: 125%;
-		line-height: 100px;
+	
+	>div {
 		background-color: rgb(250, 250, 250);
 		border-radius: 5px;
 		height: 100px;
+	}
+	
+	form {
+		padding: 5px;
+	}
+	.inner {
+		position: relative;
+		font-size: 125%;
+		line-height: 100px;
 		text-align: center;
 	}
 	
 	.delete-item {
-		top: 4px;
-		right: 20px;
+		line-height: 10px;
+		top: 2px;
+		right: 2px;
 	}
 	
 	&:hover .delete-item {

@@ -1,9 +1,7 @@
 Trill.Views.BoardsForm = Backbone.View.extend({
-	tagClass: "form-inline",
-	tagName: "form",
 	template: JST["boards/form"],
 	events: {
-		"submit" : "newBoard"
+		"submit form" : "newBoard"
 	},
 	initialize: function(){
 		
