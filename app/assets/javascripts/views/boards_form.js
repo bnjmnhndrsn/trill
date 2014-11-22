@@ -18,7 +18,6 @@ Trill.Views.BoardsForm = Backbone.View.extend({
 		var $form = $(event.currentTarget),
 			data = $form.serializeJSON(),
 			board = new Trill.Models.Board();
-		debugger;
 		board.save(data.board, {
 			success: function(model){
 				Trill.Collections.boards.add(model);
@@ -31,4 +30,4 @@ Trill.Views.BoardsForm = Backbone.View.extend({
 		});
 		
 	}
-})
+});

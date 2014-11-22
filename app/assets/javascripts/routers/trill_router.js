@@ -15,9 +15,8 @@ Trill.Routers.TrillRouter = Backbone.Router.extend({
 	},
 	show: function(id){
 		var board = Trill.Collections.boards.getOrFetch(id);
-		var showView = new Trill.Views.BoardsShow({ model: board });
+		var showView = new Trill.Views.BoardsShow({ model: board, collection: board.lists() });
 		this._swapView(showView);
-		
 	},
 	_swapView: function(newView){
 		if (this._currentView){

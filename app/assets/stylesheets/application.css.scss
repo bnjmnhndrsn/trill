@@ -20,6 +20,62 @@
 	font-size: 115%;
 }
 
-.new-board {
+.list {
+	padding: 5px;
+}
+
+.list-inner {
+	border-radius: 5px;
+	border: 1px black solid;
+	background-color: rgb(245, 245, 245);
 	
+	> header {
+		padding: 5px;
+		border-radius: 5px 5px 0 0;
+	}
+	
+	.cards {
+		padding: 5px;
+		
+		border-radius: 0 0 5px 5px;
+	}
+}
+
+.card-index-item {
+	position: relative;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	background-color: white;
+	
+	header {
+		font-weight: bold;
+		border-bottom: 1px solid whitesmoke;
+		text-align: center;
+	}
+	
+	.content {
+	}
+	
+	.delete-item {
+		visibility: hidden;
+		opacity: 0;
+		font-size: 8px;
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		transition: opacity 1s ease;
+		
+		&:hover {
+			text-decoration: none;
+			color: red;
+		};
+	}
+	
+	&:hover {
+		.delete-item {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 }

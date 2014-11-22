@@ -1,0 +1,7 @@
+<button class="form-control toggle btn btn-default">Add Card</button>
+<form class="toggleable" style="display:none">
+	<input type="hidden" value=<%= list_id %> name="card[list_id]">
+	<input class="form-control" placeholder="title" type="text" class="open" name="card[title]">
+	<textarea  class="form-control" placeholder="description" name="card[description]"></textarea>
+	<input class="form-control" type="submit" value="Create!">
+</from>

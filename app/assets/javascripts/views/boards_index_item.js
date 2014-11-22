@@ -5,7 +5,6 @@ Trill.Views.BoardsIndexItem = Backbone.View.extend({
 	},
 	render: function(){
 		this.$el.html( this.template({ board: this.model }) );
-		console.log( this.$el.html() );
 		return this;
 	}
 })
