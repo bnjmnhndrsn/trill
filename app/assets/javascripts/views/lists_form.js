@@ -26,7 +26,6 @@ Trill.Views.ListsForm = Backbone.View.extend({
 			success: function(model){
 				view.collection.add(model);
 				$form.find("input[type='text']").val("");
-				view.toggle();
 			},
 			error: function(){
 				console.log(arguments[1]);

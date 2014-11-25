@@ -1,5 +1,7 @@
 Trill.Views.BoardsShow = Backbone.CompositeView.extend({
-
+	events: {
+		"sortupdate #lists" : "updateOrder",
+	},
 	template: JST["boards/show"],
 	
 	initialize: function(){
@@ -20,6 +22,7 @@ Trill.Views.BoardsShow = Backbone.CompositeView.extend({
 		var content = this.template({ board: this.model });
 		this.$el.html(content);
 		this.attachSubviews();
+		this.$el.find("#lists").sortable();
 		return this;
 	},
 	addListView: function(list){
@@ -33,4 +36,15 @@ Trill.Views.BoardsShow = Backbone.CompositeView.extend({
 		
 		this.removeSubview( "#lists", toDelete );
 	},
+	updateOrder: function(event){
+		var order = $.map( this.$("#lists").find(".list"), function(list){
+			return $(list).data("id");
+		});
+		
+		order.forEach(function(id, idx){
+			var list = this.collection.get(id);
+			list.set("ord", idx);
+			list.save();
+		}.bind(this));
+	}
 });

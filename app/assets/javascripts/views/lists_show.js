@@ -6,34 +6,27 @@ Trill.Views.ListsShow = Backbone.CompositeView.extend({
 	className: "list",
 	template: JST["lists/show"],
 	initialize: function(){
-		this.listenTo( this.model, 'change', this.render );
-		this.listenTo( this.collection, 'add', this.addCardView );
-		this.listenTo( this.collection, 'remove', this.removeCardView );
+		this.$el.attr("data-id", this.model.id);
 		
-		var showView = this;
-		this.collection.each(function(card){
-			showView.addCardView(card);
+		this.listenTo( this.model, 'change:title', this.render );
+
+		var cardsIndexView = new Trill.Views.CardsIndex({
+			collection: this.collection
 		});
+		
+		this.addSubview( ".cards-container", cardsIndexView )
 		
 		var cardsFormView = new Trill.Views.CardsForm({ 
 			model: this.model
 		});
 		
+		
 		this.addSubview( ".new-card", cardsFormView )
 	},
 	render: function(){
 		this.$el.html( this.template({ list: this.model }) );
+		this.attachSubviews();
 		return this;
-	},
-	addCardView: function(card){
-		this.addSubview( ".cards", new Trill.Views.CardsIndexItem({ model: card }) );
-	},	
-	removeCardView: function(card){
-		var toDelete = _.find(this.subviews(".cards"), function(subview){
-			return subview.model.id === card.id;
-		});
-		
-		this.removeSubview( ".cards", toDelete );
 	},
 	deleteList: function(){
 		this.model.destroy();

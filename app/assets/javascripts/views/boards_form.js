@@ -28,4 +28,5 @@ Trill.Views.BoardsForm = Backbone.View.extend({
 		});
 		
 	}
+	
 });
